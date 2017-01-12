@@ -1,3 +1,8 @@
+$('body').on('touchmove',function(event){
+ event.preventDefault;
+});
+
+window.location.hash = "";
 // loading
 window.addEventListener('DOMContentLoaded', function() {
     new QueryLoader2(document.querySelector("body"), {
