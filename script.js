@@ -1,6 +1,6 @@
-$('body').on('touchmove',function(event){
- event.preventDefault;
-});
+document.body.addEventListener('touchmove', function (event) {
+    event.preventDefault();
+}, false);
 
 window.location.hash = "";
 // loading
