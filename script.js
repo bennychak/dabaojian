@@ -9,17 +9,34 @@ window.addEventListener('DOMContentLoaded', function() {
         maxTime:1000000,
         fadeOutTime: 900,
         onComplete : function() {
-            
+            hash = window.location.hash;
         },
     });
 });
+
+window.onhashchange = changehash;
+
+function changehash(){
+    var hash = window.location.hash.replace('#','');
+    if( hash == '1'){
+
+        $('#uploadpage').css('display','none');
+        $('#tunepage').css('display','block');
+    }
+    if( hash == ''){
+
+        $('#uploadpage').css('display','block');
+        $('#tunepage').css('display','none');
+    }
+    $('#upload').val('');
+}
 
 var uploader = new CanvasImageUploader({
     maxSize: 1500,
     jpegQuality: 0.7
 });
 
-var MAX_PREVIEW_SIZE = 200;
+var MAX_PREVIEW_SIZE = 750;
 var file;   // File to upload
 var $previewCanvas = $('#canvas');
 
@@ -32,9 +49,8 @@ function onImageChanged(e) {
             uploader.copyToCanvas($canvas[0], $previewCanvas, MAX_PREVIEW_SIZE);      // Copy to preview
             uploader.saveCanvasToImageData($canvas[0]);     // Save for later use in uploader.getImageData()
         });
-        
-        $('#uploadpage').css('display','none');
-        $('#tunepage').css('display','block');
+
+        window.location.hash = '1';
     }
 }
 
