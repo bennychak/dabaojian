@@ -56,6 +56,7 @@ function onImageChanged(e) {
         });
 
         window.location.hash = '1';
+        $('#desc').text('旋转缩放剑到合适的位置');
     }
 }
 
